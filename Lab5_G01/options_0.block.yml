@@ -1,0 +1,44 @@
+id: options_0
+label: ModuladorPAM
+category: '[Modulos_L1BG1]'
+
+parameters:
+-   id: d
+    label: Ancho de pulso
+    dtype: int
+    default: '10'
+    hide: none
+-   id: fs
+    label: "frecuencia se\xF1al cuadrada"
+    dtype: raw
+    default: 100e3
+    hide: none
+-   id: samp_rate
+    label: frecuencia de muestreo
+    dtype: raw
+    default: 100e3
+    hide: none
+
+inputs:
+-   label: in
+    dtype: float
+    vlen: 1
+
+outputs:
+-   label: out
+    dtype: float
+    vlen: 1
+
+templates:
+    imports: 'from options_0 import options_0  # grc-generated hier_block'
+    make: "options_0(\n    d=${ d },\n    fs=${ fs },\n    samp_rate=${ samp_rate\
+        \ },\n)"
+    callbacks:
+    - set_d(${ d })
+    - set_fs(${ fs })
+    - set_samp_rate(${ samp_rate })
+
+documentation: /home/labcom/Lab5_G01/options_0.py
+grc_source: /home/labcom/Lab5_G01/lab5.grc
+
+file_format: 1
